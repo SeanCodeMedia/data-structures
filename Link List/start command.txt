@@ -1,0 +1,1 @@
+SET DEBUG=express-igloo-share:* & npm start
