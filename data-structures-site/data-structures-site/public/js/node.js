@@ -6,12 +6,15 @@ export default class Node{
 	  constructor(value, next_node=null){
            
            this.value = value
-           this.next_node = next_node   
+           this.next_node = next_node
 	  }
 
 	  get_previous_node(){
+	  	 return this.previous_node
+	  }
 
-	  	
+	  set_previous_node(previous_node){
+         this.previous_node = previous_node
 	  }
 
 	  get_value () {

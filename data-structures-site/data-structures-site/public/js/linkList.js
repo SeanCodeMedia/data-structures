@@ -18,16 +18,10 @@ export default class LinkList {
      /*
        insert a node at the head of the link list and set the old head to link to the new head 
      */
-
+    
      var newNode = new Node(value)
-     newNode.set_next_node(this.get_head_node())
+     newNode.set_next_node(this.get_head_node()) // set next node to the current head 
      this.head_node = newNode
-   }
-
-
-
-   get_current_node(){
-
 
    }
 

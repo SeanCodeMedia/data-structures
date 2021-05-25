@@ -23,10 +23,6 @@ new p5(function(p5){
  	 p5.background(52, 152, 219);
      
 
-     let prev = p5.createButton('Prev Node');
-     prev.position((p5.windowWidth/2)-90, (p5.windowHeight/2)+150);
-     prev.mousePressed(clicked);
-
      let next = p5.createButton('Next Next');
      next.position((p5.windowWidth/2)+230, (p5.windowHeight/2)+150);
      next.mousePressed(next_node);
@@ -39,7 +35,7 @@ new p5(function(p5){
 
      let remove = p5.createButton('Remove Node');
      remove.position((p5.windowWidth/2)+100, (p5.windowHeight/2)+150);
-     remove.mousePressed(clicked);
+     remove.mousePressed(remove_node);
 
 
   }
@@ -50,8 +46,6 @@ new p5(function(p5){
      p5.square(105, 20, 200);
      p5.textSize(100);
 
-        
-       
         	p5.text(current_node.get_value().toString(), card_size-20, card_size-50);
       
     
@@ -74,15 +68,22 @@ new p5(function(p5){
 
   function remove_node(){
 
-
+  	 var data = prompt("remove a single node base on its data");
+  	 ll.remove_node(data)
+  	 current_node = ll.get_head_node()
   }
 
 
   function next_node (){
 
   	  if(current_node.get_next_node() != null){
-       	      current_node = current_node.get_next_node()
-       	      current_node_future = current_node.get_next_node()
+  	  	
+  	  	current_node.set_previous_node(current_node)
+       	current_node = current_node.get_next_node()
+       	current_node_future = current_node.get_next_node()
+
+       	console.log("set")
+
        	 
        } else {
        	    
@@ -91,10 +92,6 @@ new p5(function(p5){
        }
   }
 
-  function previous_node (){
-
-
-  }
 
 }); 
 
